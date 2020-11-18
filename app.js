@@ -22,10 +22,15 @@ app.get('/about', (req, res) => {
         title: 'About Me',
         description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam, animi? Facere repellat alias exercitationem quibusdam expedita voluptatibus non. Sed, explicabo cumque facere ratione libero iste nostrum officia eius iusto iure numquam culpa quaerat dolores atque mollitia? Harum repudiandae obcaecati ullam.'
     });
-    
+
 })
 
 
+app.get('/dashboard', (req, res) => {
+    res.render('dashboard', {
+        isListEnabled: true
+    })
+})
 
 app.listen(3000, () => {
     console.log('Server is starting at port', 3000);
