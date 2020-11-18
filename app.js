@@ -22,10 +22,33 @@ app.get('/about', (req, res) => {
         title: 'About Me',
         description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam, animi? Facere repellat alias exercitationem quibusdam expedita voluptatibus non. Sed, explicabo cumque facere ratione libero iste nostrum officia eius iusto iure numquam culpa quaerat dolores atque mollitia? Harum repudiandae obcaecati ullam.'
     });
-    
+
 })
 
+app.get('/each/helper', (req, res) => {
+    res.render('contact', {
+        people: [
+            "James",
+            "Peter",
+            "Sadrack",
+            "Morrisa"
+        ],
+        user: {
+            username: "hiep",
+            age: 20,
+            phone: 123456
+        },
+        list: [
+            {
+                items: ['Mango', 'Banana', 'Pineapple']
+            },
+            {
+                items: ['Potatoes', 'Manioc', 'Avocado']
+            }
+        ]
 
+    });
+})
 
 app.listen(3000, () => {
     console.log('Server is starting at port', 3000);
