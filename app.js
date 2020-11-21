@@ -25,7 +25,30 @@ app.get('/about', (req, res) => {
 
 })
 
+app.get('/each/helper', (req, res) => {
+    res.render('contact', {
+        people: [
+            "James",
+            "Peter",
+            "Sadrack",
+            "Morrisa"
+        ],
+        user: {
+            username: "hiep",
+            age: 20,
+            phone: 123456
+        },
+        list: [
+            {
+                items: ['Mango', 'Banana', 'Pineapple']
+            },
+            {
+                items: ['Potatoes', 'Manioc', 'Avocado']
+            }
+        ]
 
+    });
+})
 app.get('/dashboard', (req, res) => {
     res.render('dashboard', {
         isListEnabled: true
