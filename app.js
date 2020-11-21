@@ -3,8 +3,11 @@ const app = express();
 const exphbs = require('express-handlebars');
 
 //Set our engine to use our handlebars engine and set view engine to handlebars
-app.engine('handlebars', exphbs({ defaultLayout: 'main' }));
-app.set('view engine', 'handlebars');
+app.engine('.hbs', exphbs({
+    defaultLayout: 'main',
+    extname: '.hbs'
+}));
+app.set('view engine', '.hbs');
 
 
 // Routing
