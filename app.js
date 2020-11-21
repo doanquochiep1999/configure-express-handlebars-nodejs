@@ -59,6 +59,22 @@ app.get('/dashboard', (req, res) => {
     })
 })
 
+app.get('/look', (req, res) => {
+    res.render('lookup', {
+        user: {
+            username: "hiep",
+            age: 20,
+            phone: 123456
+        },
+        people: [
+            "James",
+            "Peter",
+            "Sadrack",
+            "Morrisa"
+        ]
+    })
+})
+
 app.listen(3000, () => {
     console.log('Server is starting at port', 3000);
 })
