@@ -1,10 +1,11 @@
 const express = require('express');
 const app = express();
 const exphbs = require('express-handlebars');
-
 //Set our engine to use our handlebars engine and set view engine to handlebars
 app.engine('.hbs', exphbs({
     defaultLayout: 'main',
+    // layoutsDir: 'views/mainLayouts',
+    // partialsDir: 'views/pieces'
     extname: '.hbs'
 }));
 app.set('view engine', '.hbs');
