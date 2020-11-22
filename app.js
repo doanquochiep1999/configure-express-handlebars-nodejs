@@ -47,7 +47,8 @@ app.get('/', (req, res) => {
                 firstName: "Alan",
                 lastName: "Johnson"
             }
-        ]
+        ],
+        test: '<h3> Welcome to my home page </h3>'
     });
 })
 app.get('/about', (req, res) => {
