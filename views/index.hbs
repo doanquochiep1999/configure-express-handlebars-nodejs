@@ -1,21 +1,24 @@
 
-
 {{> header }}
 <h2>Hello World!!!!</h2>
 <p>Welcome to my App</p>
 
-{{#if isDisplayNamed}}
-
+{{#if isDisplayNamed }}
     <p>My name is : {{name}}</p>
-    {{else}}
-        <p>No name found !!!</p>
+{{else }}
+    <p>No name found !!!</p>
+{{/if}}
+
+{{#if isAgeEnabled }}
+    <p>I am {{age}}</p>
+{{else}}
+    <p>No age provided !!!</p>
 {{/if}}
 
 
-{{#if isAgeEnabled}}
-    <p>I am {{ age }}</p>
-    {{else}}
-        <p>No age provided !!!</p>
-{{/if}}
+{{#list people}}
+    {{firstName}} {{lastName}}
+{{/list}}
+
 
 {{> footer }}

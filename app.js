@@ -1,13 +1,28 @@
 const express = require('express');
 const app = express();
 const exphbs = require('express-handlebars');
-//Set our engine to use our handlebars engine and set view engine to handlebars
-app.engine('.hbs', exphbs({
+
+//Use custom helper
+const hbs = exphbs.create({
     defaultLayout: 'main',
     // layoutsDir: 'views/mainLayouts',
     // partialsDir: 'views/pieces'
-    extname: '.hbs'
-}));
+    extname: '.hbs',
+    helpers: {
+        list: function (context, options) {
+            var ret = "<ul>";
+            context.forEach((person) => {
+                ret += "<li>" + options.fn(person) + "</li>"
+            })
+            return ret += "</ul>";
+        }
+    }
+})
+
+
+//Set our engine to use our handlebars engine and set view engine to handlebars
+app.engine('.hbs', hbs.engine);
+
 app.set('view engine', '.hbs');
 
 
@@ -18,7 +33,21 @@ app.get('/', (req, res) => {
         name: 'Hoai Thien',
         age: 5,
         isDisplayNamed: false,
-        isAgeEnabled: true
+        isAgeEnabled: true,
+        people: [
+            {
+                firstName: "Yehuda",
+                lastName: "Katz"
+            },
+            {
+                firstName: "Carl",
+                lastName: "Lerche"
+            },
+            {
+                firstName: "Alan",
+                lastName: "Johnson"
+            }
+        ]
     });
 })
 app.get('/about', (req, res) => {
