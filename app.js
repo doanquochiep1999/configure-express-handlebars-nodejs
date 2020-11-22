@@ -85,7 +85,14 @@ app.get('/each/helper', (req, res) => {
 })
 app.get('/dashboard', (req, res) => {
     res.render('dashboard', {
-        isListEnabled: true
+        isListEnabled: true,
+        author: {
+            firstName: 'Peter',
+            lastName: 'James',
+            project: {
+                name: "Build Random Quote"
+            }
+        }
     })
 })
 
